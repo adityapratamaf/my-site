@@ -1,0 +1,32 @@
+# INIT + PUSH MAIN
+git init
+echo ".DS_Store
+node_modules/" > .gitignore
+git add -A
+git commit -m "chore: init project with index.html"
+git branch -M main
+git remote add origin https://github.com/username/my-site.git
+git push -u origin main
+
+# FEATURE LOGIN
+git checkout -b feature/login
+# (buat login.html + link dari index.html)
+git add -A
+git commit -m "feat(login): add login.html and link from index"
+git push -u origin feature/login
+# (PR → Merge → Delete branch)
+git checkout main
+git pull origin main
+
+# FEATURE MENU
+git checkout -b feature/menu
+# (tambah nav menu ke index.html)
+git add -A
+git commit -m "feat(menu): add simple nav menu to index"
+git push -u origin feature/menu
+# (PR → Merge → Delete branch)
+git checkout main
+git pull origin main
+git merge feature/menu
+git push origin main
+git branch -d feature/menu
